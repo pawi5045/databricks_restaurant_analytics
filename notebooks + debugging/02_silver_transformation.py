@@ -1,4 +1,4 @@
-# Databricks notebook source
+
 from pyspark.sql.functions import col, from_json, explode, to_timestamp
 
 #describes the schema
@@ -62,7 +62,6 @@ query.awaitTermination()
 # COMMAND ----------
 
 # now we add extra useful info by joining with our reference tables
-# this is like looking up "who is this customer" and "what restaurant is this"
 orders = spark.read.table("ws_dbxproject.`02_silver`.orders_silver")
 customers = spark.read.table("ws_dbxproject.`02_silver`.dim_customers")
 restaurants = spark.read.table("ws_dbxproject.`02_silver`.dim_restaurants")
